@@ -1,0 +1,942 @@
+{
+	"info": {
+		"_postman_id": "91e642a0-be5e-4add-8643-9dc52995a664",
+		"name": "Almacenadora",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37952106"
+	},
+	"item": [
+		{
+			"name": "proveedor",
+			"item": [
+				{
+					"name": "Agregar un proveedor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"napurain siquin\",\r\n    \"contact\": 89785623,\r\n    \"products\": [\r\n        \"6817aea9a921f735043f39de\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1998/v1/proveedor/createproveedor",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"proveedor",
+								"createproveedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver un proveedor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/proveedor/proveedor/6817e90771422dfb4e36f133",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"proveedor",
+								"proveedor",
+								"6817e90771422dfb4e36f133"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver todos los proveedores",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/proveedor/allproveedores",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"proveedor",
+								"allproveedores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar un proveedor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"napurain siquin tumax\",\r\n    \"contact\": 49335106,\r\n    \"products\": [\r\n        \"6817aea9a921f735043f39de\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1998/v1/proveedor/proveedor/6817e90771422dfb4e36f133",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"proveedor",
+								"proveedor",
+								"6817e90771422dfb4e36f133"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un proveedor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "confirmation",
+									"value": "CONFIRM",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/proveedor/deleteproveedor/6817e90771422dfb4e36f133",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"proveedor",
+								"deleteproveedor",
+								"6817e90771422dfb4e36f133"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "Agregar un cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "oroshon tumax",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "5474 3573",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "supermercados orocxon",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/cliente/createcliente",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"cliente",
+								"createcliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar un cliente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "oroshon tumax siquin napurain",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "5474 3573",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "supermercados orocxon",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/cliente/editcliente/6816c7ab05a3cc110534a033",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"cliente",
+								"editcliente",
+								"6816c7ab05a3cc110534a033"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver un cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/cliente/cliente/6816c7ab05a3cc110534a033",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"cliente",
+								"cliente",
+								"6816c7ab05a3cc110534a033"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar un cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/cliente/allclientes",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"cliente",
+								"allclientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar un cliente",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "confirmation",
+									"value": "CONFIRMADO",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/cliente/cliente/6816c7ab05a3cc110534a033",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"cliente",
+								"cliente",
+								"6816c7ab05a3cc110534a033"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoria",
+			"item": [
+				{
+					"name": "Agregar categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "categoria predeterminada",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "categoria predeterminada",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/category/createcategory",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"category",
+								"createcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver una categoria",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/category/category/6817941bb32cd95ae4b31007",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"category",
+								"category",
+								"6817941bb32cd95ae4b31007"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver todas las categorias",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1998/v1/category/allcategory",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"category",
+								"allcategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar una categoria",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "limpieza y cocina",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "productos de limpieza y cocina para el hogar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/category/editcategory/6817941bb32cd95ae4b31007",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"category",
+								"editcategory",
+								"6817941bb32cd95ae4b31007"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar una categoria",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/category/deletecategory/6817941bb32cd95ae4b31007",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"category",
+								"deletecategory",
+								"6817941bb32cd95ae4b31007"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "producto",
+			"item": [
+				{
+					"name": "crear producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "escoba",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "producto para barrer",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "25.00",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "6817941bb32cd95ae4b31007",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "salesCount",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "entryDate",
+									"value": "4/05/2023",
+									"type": "text"
+								},
+								{
+									"key": "expirationDate",
+									"value": "5/02/2021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/product/createproduct",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"product",
+								"createproduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar producto con filtro",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:1998/v1/product/allproducts?name=escoba&category=6817941bb32cd95ae4b31007&fromDate=2023-01-01&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"product",
+								"allproducts"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "escoba"
+								},
+								{
+									"key": "category",
+									"value": "6817941bb32cd95ae4b31007"
+								},
+								{
+									"key": "fromDate",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar producto (solo empleado)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "stock",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "35.00",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/product/editproduct/6817aea9a921f735043f39de",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"product",
+								"editproduct",
+								"6817aea9a921f735043f39de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminar producto (solo administrador)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:1998/v1/product/deleteproduct/6817aea9a921f735043f39de",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"product",
+								"deleteproduct",
+								"6817aea9a921f735043f39de"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Iniciar sesion empleado",
+			"item": [
+				{
+					"name": "Registrar o crear empleado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "carlos",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "higuain",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "carlosHiguain",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "carlosH@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "HHHH88**/",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "49335106",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "EMPLOYEE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/loginAndRegister/register",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"loginAndRegister",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar sesion empleado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", \"Bearer \" + data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "carlosHiguain",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "HHHH88**/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/loginAndRegister/login",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"loginAndRegister",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Iniciar sesion administrador",
+			"item": [
+				{
+					"name": "Registrar o agregar administrador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", \"Bearer \" + data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "pedro",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "salgero",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "pedroPedo",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "pedroP@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "LLLL88**/",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "49335106",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/loginAndRegister/register",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"loginAndRegister",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciar sesion administrador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", \"Bearer \" + data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "pedroPedo",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "LLLL88**/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1998/v1/loginAndRegister/login",
+							"host": [
+								"localhost"
+							],
+							"port": "1998",
+							"path": [
+								"v1",
+								"loginAndRegister",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

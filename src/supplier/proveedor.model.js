@@ -12,10 +12,9 @@ const proveedorSchema = Schema(
     },
     products:{
         type: Schema.Types.ObjectId,
-        ref: 'Producto',
+        ref: 'Product',
         required: [true, 'Product is required']
-    }
-    ,
+    },
     status: {
       type: Boolean,
       default: true

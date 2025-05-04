@@ -1,4 +1,5 @@
 import Proveedor from './proveedor.model.js'
+import Product from '../product/product.model.js'
 
 /* GESTIÓN DE PROVEEDORES */
 
@@ -32,6 +33,15 @@ export const getProveedorById = async (req, res) => {
 export const createProveedor = async (req, res) => {
   try {
     const { name, contact, products } = req.body;
+
+    // Validar que los IDs de productos existan
+    if (products && products.length > 0) {
+      const existingProducts = await Product.find({ _id: { $in: products } });
+
+      if (existingProducts.length !== products.length) {
+        return res.status(400).json({ error: 'Uno o más productos no existen.' });
+      }
+    }
 
     const proveedor = new Proveedor({
       name,
