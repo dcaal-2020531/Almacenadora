@@ -6,6 +6,8 @@ import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
 import productRoutes from '../src/product/product.routes.js';
 import categoryRoutes from '../src/category/category.routes.js';
+import userRoutes from '../src/User/user.routes.js'
+import authRoutes from '../src/auth/auth.routes.js'
 import movementRoutes from '../src/movement/movement.routes.js'
 
 
@@ -20,6 +22,8 @@ const configs = (app)=>{
 const routes = (app)=>{
     app.use('/v1/product', productRoutes);
     app.use('/v1/category', categoryRoutes);
+    app.use('/user',userRoutes)
+    app.use('/', authRoutes)
     app.use('/v1/movement', movementRoutes);
 }
 

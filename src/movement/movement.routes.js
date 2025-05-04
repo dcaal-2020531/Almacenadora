@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerEntry, registerExit, getHistory } from './movement.controller';
+import { registerEntry, registerExit, getHistory } from './movement.controller.js';
 
 const router = express.Router();
 

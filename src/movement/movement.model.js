@@ -7,7 +7,7 @@ const movementSchema = new Schema({
   date: { type: Date, default: Date.now },
   reason: { type: String },
   destination: { type: String }, 
-  employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' }
+  employee: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 export default model("Movement", movementSchema);
