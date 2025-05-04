@@ -81,7 +81,7 @@ export const deactivateCliente = async (req, res) => {
       return res.status(404).json({ mensaje: 'Cliente no encontrado' });
     }
 
-    if (!confirmation || confirmation !== 'CONFIRM') {
+    if (!confirmation || confirmation !== 'CONFIRMADO') {
       return res.status(400).json({ mensaje: 'Se requiere confirmación para dar de baja al cliente' });
     }
 
@@ -93,3 +93,4 @@ export const deactivateCliente = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+

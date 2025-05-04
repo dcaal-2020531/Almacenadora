@@ -4,7 +4,7 @@ import express from 'express' //Servidor HTTP
 import morgan from 'morgan' //Logs
 import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors' //Acceso al API
-
+import clienteRoutes from '../src/Cliente/cliente.routes.js'
 
 const configs = (app)=>{
     app.use(express.json()) //Aceptar y enviar datos en JSON
@@ -15,7 +15,8 @@ const configs = (app)=>{
 }
 
 const routes = (app)=>{
-   // app.use(authRoutes)
+    app.use('/v1/cliente', clienteRoutes)
+    
 }
 
 export const initServer = async()=>{
