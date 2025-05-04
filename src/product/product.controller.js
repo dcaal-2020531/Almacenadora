@@ -36,9 +36,15 @@ export const getProducts = async (req, res) => {
 // Editar producto (toda la info)
 export const updateProduct = async (req, res) => {
   try {
+    const role = req.user.role;
+
+    if (role === 'EMPLEADO') {
+      return res.status(403).json({ message: "No tienes permiso para editar toda la información del producto" });
+    }
+
     const updatedProduct = await Product.findByIdAndUpdate(
-      req.params.id, 
-      req.body, 
+      req.params.id,
+      req.body,
       { new: true }
     );
     res.json(updatedProduct);
@@ -46,6 +52,7 @@ export const updateProduct = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
 
 // Actualizar campos específicos (como stock o precio)
 export const patchProduct = async (req, res) => {
