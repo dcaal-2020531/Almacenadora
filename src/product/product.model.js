@@ -32,16 +32,6 @@ const productSchema = new Schema({
   expirationDate: { 
     type: Date, 
     required: false 
-},        
-  supplier: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Supplier', 
-    required: false 
-},
-  minStock: {
-    type: Number,
-    required: true,
-    default: 5
 }
 });
 

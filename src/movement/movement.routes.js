@@ -1,10 +1,10 @@
-import express from 'express';
+import {Router} from 'express';
 import { registerEntry, registerExit, getHistory } from './movement.controller.js';
 
-const router = express.Router();
+const api = Router();
 
-router.post('/entrada', registerEntry);
-router.post('/salida', registerExit);
-router.get('/historial/:productId', getHistory);
+api.post('/entrada', registerEntry);
+api.post('/salida', registerExit);
+api.get('/historial/:productId', getHistory);
 
-export default router;
+export default api;

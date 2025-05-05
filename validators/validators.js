@@ -34,5 +34,5 @@ export const loginValidator = [
         .isStrongPassword()
         .withMessage('The password must be strong')
         .isLength({min: 8}),
-        validateErrors
-]
+        validateErrors]
+

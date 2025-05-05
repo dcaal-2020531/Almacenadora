@@ -33,30 +33,34 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// Editar producto (toda la info)
-export const updateProduct = async (req, res) => {
-  try {
-    const role = req.user.role;
-
-    if (role === 'EMPLEADO') {
-      return res.status(403).json({ message: "No tienes permiso para editar toda la información del producto" });
-    }
-
-    const updatedProduct = await Product.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(updatedProduct);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-
 // Actualizar campos específicos (como stock o precio)
 export const patchProduct = async (req, res) => {
   try {
+    const role = req.user.role;
+
+    if (role === 'EMPLOYEE') {
+      const allowedFields = ['stock', 'price'];
+      const updateData = {};
+
+      for (let key of allowedFields) {
+        if (req.body[key] !== undefined) {
+          updateData[key] = req.body[key];
+        }
+      }
+
+      const updated = await Product.findByIdAndUpdate(
+        req.params.id,
+        { $set: updateData },
+        { new: true }
+      );
+      return res.json({
+        updated,
+        message: "Advertencia: Solo puede editar el stock y el precio del producto"
+      });
+      
+    }
+
+    // Admin puede editar todo
     const updated = await Product.findByIdAndUpdate(
       req.params.id,
       { $set: req.body },

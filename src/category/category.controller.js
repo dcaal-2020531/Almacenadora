@@ -7,9 +7,9 @@ export const createCategory = async (req, res) => {
     const { name, description } = req.body;
     const newCategory = new Category({ name, description });
     await newCategory.save();
-    return res.status(201).json({ success: true, message: 'Category created', category: newCategory });
+    return res.status(201).json({ success: true, message: 'Categoria creada exitosamente', category: newCategory });
   } catch (err) {
-    return res.status(500).json({ success: false, message: 'Error creating category', err });
+    return res.status(500).json({ success: false, message: 'Error al crear la categoria', err });
   }
 };
 
@@ -25,16 +25,19 @@ export const getAllCategory = async (req, res) => {
 export const getCategoryById = async (req, res) => {
   try {
     const { id } = req.params;
+    // Validar formato del ObjectId
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ success: false, message: 'Invalid category ID' });
+      return res.status(400).json({ mensaje: 'ID inválido' });
     }
+    // Buscar categoría por ID
     const category = await Category.findById(id);
     if (!category) {
-      return res.status(404).json({ success: false, message: 'Category not found' });
+      return res.status(404).json({ mensaje: 'Categoría no encontrada' });
     }
-    return res.status(200).json({ success: true, category });
-  } catch (err) {
-    return res.status(500).json({ success: false, message: 'Error fetching category', err });
+    res.status(200).json(category);
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -54,18 +57,18 @@ export const deleteCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const category = await Category.findById(id);
-    if (!category) return res.status(404).json({ success: false, message: 'Category not found' });
-    if (category.defaultCat) return res.status(400).json({ success: false, message: 'Cannot delete default category' });
+    if (!category) return res.status(404).json({ success: false, message: 'Categoria no encontrada' });
+    if (category.defaultCat) return res.status(400).json({ success: false, message: 'No se puede eliminar la categoría predeterminada' });
 
     const defaultCat = await Category.findOne({ defaultCat: true });
-    if (!defaultCat) return res.status(400).json({ success: false, message: 'Default category not set' });
+    if (!defaultCat) return res.status(400).json({ success: false, message: 'Categoría predeterminada no establecida' });
 
     await Product.updateMany({ category: id }, { $set: { category: defaultCat._id } });
     await Category.findByIdAndDelete(id);
 
-    return res.status(200).json({ success: true, message: 'Category deleted and products reassigned' });
+    return res.status(200).json({ success: true, message: 'categoría eliminada y productos reasignados' });
   } catch (err) {
-    return res.status(500).json({ success: false, message: 'Error deleting category', err });
+    return res.status(500).json({ success: false, message: 'Error al eliminar la categoría', err });
   }
 };
 
@@ -73,18 +76,18 @@ export const defaultCategory = async () => {
   try {
     const defaultCategory = await Category.findOne({ defaultCat: true });
     if (defaultCategory) {
-      console.log('The default category already exists.');
+      console.log('La categoría predeterminada ya existe.');
       return;
     }
-    console.log('Creating the default category...');
+    console.log('Creando la categoría predeterminada...');
     const newCategory = new Category({
-      name: 'Default Category',
-      description: 'This is the default category',
+      name: 'Categoría predeterminada',
+      description: 'Esta es la categoría predeterminada',
       defaultCat: true,
     });
     await newCategory.save();
-    console.log('Default category created successfully');
+    console.log('Categoría predeterminada creada correctamente');
   } catch (error) {
-    console.error('Error creating the default category:', error);
+    console.error('Error al crear la categoría predeterminada:', error);
   }
 };

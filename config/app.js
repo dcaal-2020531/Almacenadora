@@ -10,6 +10,13 @@ import userRoutes from '../src/User/user.routes.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import movementRoutes from '../src/movement/movement.routes.js'
 import alertRoutes from '../src/alerts/alert.routes.js';
+import clienteRoutes from '../src/client/cliente.routes.js'
+import proveedorRoutes from '../src/supplier/proveedor.routes.js'
+import loginAndRegisterRoutes from '../src/auth/auth.routes.js'
+import employeeRoutes from '../src/User/user.routes.js'
+import inventarioRoutes from '../src/Informes/Inventario/inventario.routes.js'; // Nueva ruta de inventario
+import estadisticasRoutes from '../src/Informes/Estadisticas/estadisticas.routes.js'; // Nueva ruta de estadísticas
+import movimientoInventario from '../src/Informes/Movimiento Inventario/movimiento.routes.js    '; //Movimiento de inventario
 
 
 const configs = (app)=>{
@@ -22,11 +29,19 @@ const configs = (app)=>{
 
 const routes = (app)=>{
     app.use('/v1/product', productRoutes);
-    app.use('/v1/category', categoryRoutes);
     app.use('/user',userRoutes)
     app.use('/', authRoutes)
     app.use('/v1/movement', movementRoutes);
     app.use('/alerts', alertRoutes);
+    app.use('/v1/cliente', clienteRoutes )
+    app.use('/v1/proveedor', proveedorRoutes)
+    app.use('/v1/category', categoryRoutes)
+    app.use('/v1/loginAndRegister', loginAndRegisterRoutes)
+    app.use('/v1/employee', employeeRoutes)
+    app.use('/v1/inventario', inventarioRoutes); // Ruta para informes de inventario
+    app.use('/v1/estadisticas', estadisticasRoutes); // Ruta para estadísticas
+    app.use('/v1/movimientoInventario', movimientoInventario); // Movimiento de inventario
+
 }
 
 export const initServer = async()=>{

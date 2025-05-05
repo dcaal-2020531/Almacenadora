@@ -4,6 +4,7 @@ import { connect } from "./config/mongo.js";
 import { defaultCategory } from '../Almacenadora/src/category/category.controller.js'
 
 
+
 config()
 initServer()
 connect()

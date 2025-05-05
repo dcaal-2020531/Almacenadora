@@ -13,3 +13,4 @@ export const validateJwt = (req, res, next) => {
         return res.status(401).json({ message: 'Token inválido o expirado' });
     }
 };
+
