@@ -9,6 +9,7 @@ import categoryRoutes from '../src/category/category.routes.js';
 import userRoutes from '../src/User/user.routes.js'
 import authRoutes from '../src/auth/auth.routes.js'
 import movementRoutes from '../src/movement/movement.routes.js'
+import alertRoutes from '../src/alerts/alert.routes.js';
 
 
 const configs = (app)=>{
@@ -25,6 +26,7 @@ const routes = (app)=>{
     app.use('/user',userRoutes)
     app.use('/', authRoutes)
     app.use('/v1/movement', movementRoutes);
+    app.use('/alerts', alertRoutes);
 }
 
 export const initServer = async()=>{

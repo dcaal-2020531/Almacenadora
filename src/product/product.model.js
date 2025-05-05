@@ -37,7 +37,12 @@ const productSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Supplier', 
     required: false 
-} 
+},
+  minStock: {
+    type: Number,
+    required: true,
+    default: 5
+}
 });
 
 export default model("Product", productSchema);
